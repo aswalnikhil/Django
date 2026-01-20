@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.github',
 
     # My apps
     'a_home',
@@ -74,6 +75,15 @@ SOCIALACCOUNT_PROVIDERS = {
             'access_type': 'online',
             'prompt': 'consent'
         }
+    },
+    'github':{
+        'APP': {
+            'client_id': env('OAUTH_GITHUB_CLIENT_ID'),
+            'secret': env('OAUTH_GITHUB_SECRET'),
+        },
+        'AUTH_PARAMS':{
+            'prompt': 'consent'
+        },
     },
 }
 
